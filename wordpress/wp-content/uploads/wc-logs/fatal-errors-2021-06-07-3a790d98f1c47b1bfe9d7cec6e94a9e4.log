@@ -1,0 +1,7 @@
+2021-06-07T06:42:43+00:00 CRITICAL Uncaught WooCommerce\PayPalCommerce\ApiClient\Exception\RuntimeException: Could not create referral. in D:\project_cms\wordpress\wp-content\plugins\woocommerce-paypal-payments\modules\ppcp-api-client\src\Endpoint\class-partnerreferrals.php:96
+Stack trace:
+#0 D:\project_cms\wordpress\wp-content\plugins\woocommerce-paypal-payments\modules\ppcp-onboarding\src\Render\class-onboardingrenderer.php(66): WooCommerce\PayPalCommerce\ApiClient\Endpoint\PartnerReferrals->signup_link()
+#1 D:\project_cms\wordpress\wp-content\plugins\woocommerce-paypal-payments\modules\ppcp-onboarding\src\class-onboarding-rest-controller.php(311): WooCommerce\PayPalCommerce\Onboarding\Render\OnboardingRenderer->get_signup_link(true)
+#2 D:\project_cms\wordpress\wp-content\plugins\woocommerce-paypal-payments\modules\ppcp-onboarding\src\class-onboarding-rest-controller.php(124): WooCommerce\PayPalCommerce\Onboarding\Onboarding_REST_Controller->generate_signup_link('production', Array)
+#3 D:\project_cms\wordpress\wp-includes\rest-api\class-wp-r in D:\project_cms\wordpress\wp-content\plugins\woocommerce-paypal-payments\modules\ppcp-api-client\src\Endpoint\class-partnerreferrals.php on line 96
+
