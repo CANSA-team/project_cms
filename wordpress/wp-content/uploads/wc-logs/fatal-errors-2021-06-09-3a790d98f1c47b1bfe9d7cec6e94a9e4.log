@@ -1,0 +1,2 @@
+2021-06-09T08:07:44+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\project_cms\wordpress/wp-content/themes/project/coreinit.php' (include_path='.;C:\php\pear') in C:\wamp64\www\project_cms\wordpress\wp-content\themes\project\functions.php on line 13
+
