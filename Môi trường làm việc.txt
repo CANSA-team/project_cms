@@ -1,0 +1,4 @@
+Xem database: trỏ tới file này và thêm /phpMyAdmin
+Password and Account of Wordpress
+Account: admin
+PassWord : admin
