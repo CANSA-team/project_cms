@@ -1,0 +1,66 @@
+2021-06-16T17:49:05+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 91
+
+2021-06-16T18:09:50+00:00 CRITICAL syntax error, unexpected ';', expecting ')' in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 120
+
+2021-06-16T18:10:02+00:00 CRITICAL syntax error, unexpected ';', expecting ')' in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 120
+
+2021-06-16T18:10:18+00:00 CRITICAL syntax error, unexpected ';', expecting ')' in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 120
+
+2021-06-16T18:15:16+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 123
+
+2021-06-16T18:26:46+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 124
+
+2021-06-16T18:32:01+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 109
+
+2021-06-16T18:46:09+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Term::get_price() in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php:151
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 151
+
+2021-06-16T18:46:24+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Term::get_price() in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php:151
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 151
+
+2021-06-16T18:46:25+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Term::get_price() in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php:151
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 151
+
+2021-06-16T18:46:39+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Term::get_price() in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php:151
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 151
+
+2021-06-16T18:47:18+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Term::get_regular_price() in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php:151
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 151
+
+2021-06-16T19:29:43+00:00 CRITICAL syntax error, unexpected end of file in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 709
+
+2021-06-16T19:38:37+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW) in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 108
+
+2021-06-16T19:46:18+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Term::get_slug() in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php:91
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php on line 91
+
