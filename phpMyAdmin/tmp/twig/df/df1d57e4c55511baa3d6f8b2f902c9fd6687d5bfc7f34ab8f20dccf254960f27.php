@@ -62,6 +62,6 @@ class __TwigTemplate_6a5ac7525f9ae67bc35470c05203e51fcf598e8c6481b1bba33de1ac30c
 
     public function getSourceContext()
     {
-        return new Source("", "message.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\message.twig");
+        return new Source("", "message.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\message.twig");
     }
 }

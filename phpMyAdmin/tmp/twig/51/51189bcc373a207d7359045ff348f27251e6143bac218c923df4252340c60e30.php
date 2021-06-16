@@ -92,6 +92,6 @@ class __TwigTemplate_ce5750807dad231c0ccb3455123af000a232b003c0fdbbabe41d40d4874
 
     public function getSourceContext()
     {
-        return new Source("", "login/header.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\login\\header.twig");
+        return new Source("", "login/header.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\login\\header.twig");
     }
 }

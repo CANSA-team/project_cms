@@ -105,6 +105,6 @@ class __TwigTemplate_59b6274809627f68ea219e36cb0ebe53058405f312ab6c9d74e7beb3f04
 
     public function getSourceContext()
     {
-        return new Source("", "top_menu.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\top_menu.twig");
+        return new Source("", "top_menu.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\top_menu.twig");
     }
 }

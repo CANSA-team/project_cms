@@ -97,6 +97,6 @@ class __TwigTemplate_3b9c54615acfd07d70d4bbf708a3b8d427457f98d55bb491dda65d1ac15
 
     public function getSourceContext()
     {
-        return new Source("", "database/create_table.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\database\\create_table.twig");
+        return new Source("", "database/create_table.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\database\\create_table.twig");
     }
 }

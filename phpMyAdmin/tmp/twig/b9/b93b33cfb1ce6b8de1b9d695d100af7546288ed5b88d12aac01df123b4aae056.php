@@ -561,6 +561,6 @@ class __TwigTemplate_ee79d74a90e3f1f0d10fe25765a2b113e4f9b6918d31658e51770f7f335
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/structure_table_row.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\database\\structure\\structure_table_row.twig");
+        return new Source("", "database/structure/structure_table_row.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\database\\structure\\structure_table_row.twig");
     }
 }

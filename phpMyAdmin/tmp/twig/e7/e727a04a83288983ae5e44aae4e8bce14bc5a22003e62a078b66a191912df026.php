@@ -75,6 +75,6 @@ class __TwigTemplate_0aecc4c21454a0968846a49dddea9c96e4a02426af293e07a239ef6f41e
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/form_top.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\config\\form_display\\form_top.twig");
+        return new Source("", "config/form_display/form_top.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\config\\form_display\\form_top.twig");
     }
 }

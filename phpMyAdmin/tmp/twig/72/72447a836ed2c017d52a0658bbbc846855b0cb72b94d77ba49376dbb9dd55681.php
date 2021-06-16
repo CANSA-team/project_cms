@@ -75,6 +75,6 @@ class __TwigTemplate_6e0cfb9fb6b44164dfa996e4302f400985c66f61420ec609ffe847bca0e
 
     public function getSourceContext()
     {
-        return new Source("", "filter.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\filter.twig");
+        return new Source("", "filter.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\filter.twig");
     }
 }

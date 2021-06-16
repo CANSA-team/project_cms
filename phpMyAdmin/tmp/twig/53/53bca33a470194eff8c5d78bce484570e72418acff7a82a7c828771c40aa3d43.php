@@ -272,6 +272,6 @@ class __TwigTemplate_594cad578a7aa4e26f4278820aa2129762cdba765f3a592caaa4a8c504d
 
     public function getSourceContext()
     {
-        return new Source("", "navigation/main.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\navigation\\main.twig");
+        return new Source("", "navigation/main.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\navigation\\main.twig");
     }
 }

@@ -108,6 +108,6 @@ class __TwigTemplate_e6eb395c88d9878c7ace2d1700f675b3662d415b2d5ab13ec7df8b4f43c
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/fieldset_top.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\config\\form_display\\fieldset_top.twig");
+        return new Source("", "config/form_display/fieldset_top.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\config\\form_display\\fieldset_top.twig");
     }
 }

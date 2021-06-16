@@ -81,6 +81,6 @@ class __TwigTemplate_3d48a736268fc807e5779ebebc670a0655340170c1b9759af0220a890cf
 
     public function getSourceContext()
     {
-        return new Source("", "select_all.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\select_all.twig");
+        return new Source("", "select_all.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\select_all.twig");
     }
 }

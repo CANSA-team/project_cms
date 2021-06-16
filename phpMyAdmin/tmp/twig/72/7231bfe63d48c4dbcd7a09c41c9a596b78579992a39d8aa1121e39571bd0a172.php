@@ -128,6 +128,6 @@ class __TwigTemplate_4e8f2f4d19f6a7a6bb66e044ada15eba78e7a67974a8119f47951c3f559
 
     public function getSourceContext()
     {
-        return new Source("", "select_lang.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\select_lang.twig");
+        return new Source("", "select_lang.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\select_lang.twig");
     }
 }

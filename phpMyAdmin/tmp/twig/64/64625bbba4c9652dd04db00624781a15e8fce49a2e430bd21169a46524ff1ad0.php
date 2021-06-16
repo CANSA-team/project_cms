@@ -94,6 +94,6 @@ class __TwigTemplate_d1a7de6570473bdd2c2b2f3b03c53874b3f1c614975bcef69871480d6d6
 
     public function getSourceContext()
     {
-        return new Source("", "console/query_action.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\console\\query_action.twig");
+        return new Source("", "console/query_action.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\console\\query_action.twig");
     }
 }

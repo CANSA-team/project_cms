@@ -174,6 +174,6 @@ class __TwigTemplate_5fe70034dbd32e0f5f85dc7d657a77e830f50f29f032fda0d05a56ccb06
 
     public function getSourceContext()
     {
-        return new Source("", "menu/breadcrumbs.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\menu\\breadcrumbs.twig");
+        return new Source("", "menu/breadcrumbs.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\menu\\breadcrumbs.twig");
     }
 }

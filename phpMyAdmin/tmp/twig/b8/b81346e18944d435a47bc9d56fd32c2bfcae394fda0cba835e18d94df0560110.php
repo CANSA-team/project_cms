@@ -88,6 +88,6 @@ class __TwigTemplate_1ffabca3350d4987ef8eef4a14bae0ddb938c99bb691f3ba218aced4ac4
 
     public function getSourceContext()
     {
-        return new Source("", "console/toolbar.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\console\\toolbar.twig");
+        return new Source("", "console/toolbar.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\console\\toolbar.twig");
     }
 }

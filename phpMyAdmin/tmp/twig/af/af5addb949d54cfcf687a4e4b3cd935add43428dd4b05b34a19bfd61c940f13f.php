@@ -61,6 +61,6 @@ class __TwigTemplate_6ea564fd3426894b2663af3b1533f219db51e5f6b41497d06c93a450141
 
     public function getSourceContext()
     {
-        return new Source("", "login/footer.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\login\\footer.twig");
+        return new Source("", "login/footer.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\login\\footer.twig");
     }
 }

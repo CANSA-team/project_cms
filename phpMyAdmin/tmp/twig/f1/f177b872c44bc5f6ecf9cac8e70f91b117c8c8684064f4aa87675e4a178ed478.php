@@ -108,6 +108,6 @@ class __TwigTemplate_4439f9b1450bf8b88d6501936419387b41f15b55897994a5ce19e75e037
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/index.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\database\\structure\\index.twig");
+        return new Source("", "database/structure/index.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\database\\structure\\index.twig");
     }
 }

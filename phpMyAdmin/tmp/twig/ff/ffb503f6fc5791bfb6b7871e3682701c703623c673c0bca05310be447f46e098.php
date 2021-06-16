@@ -128,6 +128,6 @@ class __TwigTemplate_868b094d924f3fd54ab98dbe377425afe9c4a0737d34c54a9a8c871408a
 
     public function getSourceContext()
     {
-        return new Source("", "scripts.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\scripts.twig");
+        return new Source("", "scripts.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\scripts.twig");
     }
 }

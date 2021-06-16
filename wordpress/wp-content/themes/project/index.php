@@ -76,20 +76,58 @@
                     <h3>New Products</h3>
                 </div>
                 <ul class="post-filter filters list-unstyled">
-                    <li class="active filter" data-filter=".filter-item">All</li>
-                    <li class="filter" data-filter=".dairy">Dairy</li>
-                    <li class="filter" data-filter=".pantry">Pantry
-                    </li>
-                    <li class="filter" data-filter=".meat">Meat
-                    </li>
-                    <li class="filter" data-filter=".fruits">Fruits
-                    </li>
-                    <li class="filter" data-filter=".veg">Vagetables
-                    </li>
+                <li class="active filter" data-filter=".filter-item">All</li>
+                <?php $orderby = 'name';
+			$order = 'asc';
+			$hide_empty = false;
+			$cat_args = array(
+				'orderby'    => $orderby,
+				'order'      => $order,
+				'hide_empty' => $hide_empty,
+			);
+			$product_categories = get_terms('product_cat', $cat_args);
+
+            foreach($product_categories as $item){
+                if($item->slug != 'uncategorized'){
+            ?>
+            <li class="filter" data-filter=".category-<?php echo $item->term_id ?>"><?php echo $item->name ?></li>
+            <?php }} ?>        
+                   
                 </ul>
             </div>
+           
             <div class="row filter-layout">
-                <div class="col-lg-4 col-md-6 filter-item dairy">
+            <?php $orderby = 'name';
+			$order = 'asc';
+			$hide_empty = false;
+			$cat_args = array(
+				'orderby'    => $orderby,
+				'order'      => $order,
+				'hide_empty' => $hide_empty,
+			);
+			$product_categories = get_terms('product_cat', $cat_args);
+            $z = 0 ;
+            foreach($product_categories as $item){
+            ?>
+              <?php $args = array(
+                        'orderby' =>'date',
+                        'order' => 'DESC',
+                        'limit' => 3,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'terms' => $item->term_id,
+                                'operator' => 'IN',
+                            )
+                        )
+					);
+					$products = wc_get_products($args);
+                    $i = 0;
+                   
+                    foreach($products as $product){
+                        
+             ?>
+                <div class="col-lg-4 col-md-6 <?php if($i == 0 && $z<3){ echo 'filter-item'; $z++;} ?> category-<?php echo $item->term_id ?>">
                     <div class="product-card__two">
                         <div class="product-card__two-image">
                             <span class="product-card__two-sale">sale</span>
@@ -101,7 +139,7 @@
                             </div>
                         </div>
                         <div class="product-card__two-content">
-                            <h3><a href="product-details.html">Banana</a></h3>
+                            <h3><a href="<?php echo $product->get_permalink() ?>"><?php echo $product->name ?></a></h3>
                             <div class="product-card__two-stars">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -109,127 +147,13 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <p>$1.00</p>
+                            <p><?php echo wc_price($product->get_regular_price()); ?></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 filter-item pantry">
-                    <div class="product-card__two">
-                        <div class="product-card__two-image">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/products/product-2-2.jpg" alt="">
-                            <div class="product-card__two-image-content">
-                                <a href="#"><i class="organik-icon-visibility"></i></a>
-                                <a href="#"><i class="organik-icon-heart"></i></a>
-                                <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-card__two-content">
-                            <h3><a href="product-details.html">Olive Oil</a></h3>
-                            <div class="product-card__two-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>$9.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filter-item meat">
-                    <div class="product-card__two">
-                        <div class="product-card__two-image">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/products/product-2-3.jpg" alt="">
-                            <div class="product-card__two-image-content">
-                                <a href="#"><i class="organik-icon-visibility"></i></a>
-                                <a href="#"><i class="organik-icon-heart"></i></a>
-                                <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-card__two-content">
-                            <h3><a href="product-details.html">Eggs</a></h3>
-                            <div class="product-card__two-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>$3.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filter-item dairy">
-                    <div class="product-card__two">
-                        <div class="product-card__two-image">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/products/product-2-4.jpg" alt="">
-                            <div class="product-card__two-image-content">
-                                <a href="#"><i class="organik-icon-visibility"></i></a>
-                                <a href="#"><i class="organik-icon-heart"></i></a>
-                                <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-card__two-content">
-                            <h3><a href="product-details.html">Tamatos</a></h3>
-                            <div class="product-card__two-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>$1.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filter-item fruits">
-                    <div class="product-card__two">
-                        <div class="product-card__two-image">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/products/product-2-5.jpg" alt="">
-                            <div class="product-card__two-image-content">
-                                <a href="#"><i class="organik-icon-visibility"></i></a>
-                                <a href="#"><i class="organik-icon-heart"></i></a>
-                                <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-card__two-content">
-                            <h3><a href="product-details.html">Bread</a></h3>
-                            <div class="product-card__two-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>$2.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filter-item veg">
-                    <div class="product-card__two">
-                        <div class="product-card__two-image">
-                            <span class="product-card__two-sale">sale</span>
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/products/product-2-6.jpg" alt="">
-                            <div class="product-card__two-image-content">
-                                <a href="#"><i class="organik-icon-visibility"></i></a>
-                                <a href="#"><i class="organik-icon-heart"></i></a>
-                                <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                        <div class="product-card__two-content">
-                            <h3><a href="product-details.html">Apples</a></h3>
-                            <div class="product-card__two-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>$2.00</p>
-                        </div>
-                    </div>
-                </div>
+            <?php } } ?>
             </div>
+          
         </div>
     </section>
     <section class="offer-banner">

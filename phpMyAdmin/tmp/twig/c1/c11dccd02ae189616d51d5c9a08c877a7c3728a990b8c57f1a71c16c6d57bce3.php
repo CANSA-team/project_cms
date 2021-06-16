@@ -190,6 +190,6 @@ class __TwigTemplate_3f74d82795bae0fe6295acb89e910698b0220bde43c77ee7bb9534bfdb3
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/check_all_tables.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\database\\structure\\check_all_tables.twig");
+        return new Source("", "database/structure/check_all_tables.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\database\\structure\\check_all_tables.twig");
     }
 }

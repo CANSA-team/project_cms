@@ -75,6 +75,6 @@ class __TwigTemplate_8a19172c05894e61b226278899537279682918277f8fde469e93af1f58b
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/favorite_anchor.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\database\\structure\\favorite_anchor.twig");
+        return new Source("", "database/structure/favorite_anchor.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\database\\structure\\favorite_anchor.twig");
     }
 }
