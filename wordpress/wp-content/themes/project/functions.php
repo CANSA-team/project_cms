@@ -179,24 +179,3 @@ function loadmorecategoryPage_init() {
     die();//bắt buộc phải có khi kết thúc
 }
 //product min Max price
-add_action( 'wp_ajax_loadmoreMinMax', 'loadmoreMinMax_init' );
-add_action( 'wp_ajax_nopriv_loadmoreMinMax', 'loadmoreMinMax_init' );
-function loadmoreMinMax_init() {
-    $min = (isset($_POST['minPrice']))?esc_attr($_POST['minPrice']) : '';
-    $max = (isset($_POST['maxPrice']))?esc_attr($_POST['maxPrice']) : '';
-    $args = array(
-        'orderby' =>'name',
-        'order' => 'DESC',
-        'limit' => 9, //Số lượng sp
-        'paginate' => true,
-        'paged' => 1,
-    $arr = [];
-    $temp = [];
-    $products = wc_get_products($args)->products;
-    foreach($products as $item){
-        $temp = ['name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
-        array_push($arr,$temp);
-    }
-    echo json_encode($arr);
-    die();//bắt buộc phải có khi kết thúc
-}
