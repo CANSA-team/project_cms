@@ -1,0 +1,8 @@
+2021-06-18T09:58:32+00:00 CRITICAL syntax error, unexpected ')' in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\category-product.php on line 110
+
+2021-06-18T10:30:14+00:00 CRITICAL syntax error, unexpected '$args' (T_VARIABLE) in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functions.php on line 106
+
+2021-06-18T10:54:56+00:00 CRITICAL Cannot redeclare loadmorecategory_init() (previously declared in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functions.php:125) in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functions.php on line 180
+
+2021-06-18T11:37:46+00:00 CRITICAL syntax error, unexpected ')' in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functions.php on line 202
+
