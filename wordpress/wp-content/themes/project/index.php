@@ -112,7 +112,7 @@
               <?php $args = array(
                         'orderby' =>'date',
                         'order' => 'DESC',
-                        'limit' => 3,
+                        'limit' => 6, //Số lượng sp
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'product_cat',
@@ -127,11 +127,11 @@
                     foreach($products as $product){
                         
              ?>
-                <div class="col-lg-4 col-md-6 <?php if($i == 0 && $z<3){ echo 'filter-item'; $z++;} ?> category-<?php echo $item->term_id ?>">
+                <div class="col-lg-4 col-md-6 <?php if($i == 0 && $z<6){ echo 'filter-item'; $z++;} ?> category-<?php echo $item->term_id ?>">
                     <div class="product-card__two">
                         <div class="product-card__two-image">
                             <span class="product-card__two-sale">sale</span>
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/products/product-2-1.jpg" alt="">
+                            <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" alt="">
                             <div class="product-card__two-image-content">
                                 <a href="#"><i class="organik-icon-visibility"></i></a>
                                 <a href="#"><i class="organik-icon-heart"></i></a>

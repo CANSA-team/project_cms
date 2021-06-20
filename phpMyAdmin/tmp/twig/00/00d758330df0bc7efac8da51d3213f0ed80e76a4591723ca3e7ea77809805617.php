@@ -59,6 +59,6 @@ class __TwigTemplate_6d3d9d091c6b48e67ee13a1569da2e3d6853e556bad013a5a8b83242a8e
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/empty_display.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\display\\results\\empty_display.twig");
+        return new Source("", "display/results/empty_display.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\display\\results\\empty_display.twig");
     }
 }

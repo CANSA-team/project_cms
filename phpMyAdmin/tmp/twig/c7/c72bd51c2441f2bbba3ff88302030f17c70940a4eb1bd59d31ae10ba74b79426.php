@@ -102,6 +102,6 @@ class __TwigTemplate_2ab07ad4639d3f80415555932b53c79e785fe9f03fd0f60669ab900ccbf
 
     public function getSourceContext()
     {
-        return new Source("", "table/page_with_secondary_tabs.twig", "C:\\wamp64\\www\\wordpress_project\\phpMyAdmin\\templates\\table\\page_with_secondary_tabs.twig");
+        return new Source("", "table/page_with_secondary_tabs.twig", "C:\\wamp64\\www\\worpress_cansateam\\phpMyAdmin\\templates\\table\\page_with_secondary_tabs.twig");
     }
 }
