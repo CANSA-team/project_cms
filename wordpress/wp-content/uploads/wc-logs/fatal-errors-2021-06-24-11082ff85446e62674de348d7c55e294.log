@@ -1,0 +1,60 @@
+2021-06-24T04:22:37+00:00 CRITICAL Uncaught Error: Call to undefined function get_list_of_items() in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php:36
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(710): get_footer()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php on line 36
+
+2021-06-24T04:30:12+00:00 CRITICAL Uncaught Error: Class 'Selective_Walker' not found in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php:43
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(710): get_footer()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php on line 43
+
+2021-06-24T04:40:58+00:00 CRITICAL Uncaught Error: Class 'Selective_Walker' not found in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php:44
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(710): get_footer()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php on line 44
+
+2021-06-24T04:41:29+00:00 CRITICAL Uncaught Error: Class 'Selective_Walker' not found in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php:44
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(710): get_footer()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php on line 44
+
+2021-06-24T04:44:55+00:00 CRITICAL Uncaught Error: Class 'Selective_Walker' not found in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php:44
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(710): get_footer()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php on line 44
+
