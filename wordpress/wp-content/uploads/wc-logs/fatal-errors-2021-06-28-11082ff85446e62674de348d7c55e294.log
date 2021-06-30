@@ -1,0 +1,8 @@
+2021-06-28T15:10:11+00:00 CRITICAL Uncaught Error: Call to a member function get_gallery_image_ids() on bool in F:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\single.php:15
+Stack trace:
+#0 F:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include()
+#1 F:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('F:\\wamp64\\www\\w...')
+#2 F:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('F:\\wamp64\\www\\w...')
+#3 {main}
+  thrown in F:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\single.php on line 15
+

@@ -69,3 +69,156 @@ if (!function_exists('project_theme_setup')) {
     }
     add_action('init','project_theme_setup');
 }
+//add Comment
+add_action( 'wp_ajax_comment', 'comment_init' );
+add_action( 'wp_ajax_nopriv_comment', 'comment_init' );
+function comment_init() {
+ 
+    //do bên js để dạng json nên giá trị trả về dùng phải encode
+    $name = (isset($_POST['name']))?esc_attr($_POST['name']) : '';
+    $comment = (isset($_POST['comment']))?esc_attr($_POST['comment']) : '';
+    $email = (isset($_POST['email']))?esc_attr($_POST['email']) : '';
+    $star = (isset($_POST['star']))?esc_attr($_POST['star']) : '';
+    $id = (isset($_POST['id']))?esc_attr($_POST['id']) : '';
+
+
+    $arg = array(
+        'comment_post_ID' => $id,
+        'comment_author' => $name,
+        'comment_author_email' => $email,
+        'comment_content' => $comment,
+        'comment_type'  => '',
+        'comment_karma' =>$star,
+        'comment_date' => date('Y-m-d H:i:s'),
+        'comment_date_gmt' => date('Y-m-d H:i:s'),
+    );
+    
+    $comment_id = wp_insert_comment($arg);
+ 
+    die();//bắt buộc phải có khi kết thúc
+}
+//LoadMore btn ajax
+add_action( 'wp_ajax_loadmore', 'loadmore_init' );
+add_action( 'wp_ajax_nopriv_loadmore', 'loadmore_init' );
+function loadmore_init() {
+    $page = (isset($_POST['page']))?esc_attr($_POST['page']) : '';
+    $args = array(
+        'orderby' =>'name',
+        'order' => 'DESC',
+        'limit' => 9, //Số lượng sp
+        'paginate' => true,
+        'paged' => $page,
+    );
+    $arr = [];
+    $temp = [];
+    $products = wc_get_products($args)->products;
+    foreach($products as $item){
+        $temp = ['name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        array_push($arr,$temp);
+    }
+    echo json_encode($arr);
+    die();//bắt buộc phải có khi kết thúc
+}
+//Load More category
+add_action( 'wp_ajax_loadmorecategory', 'loadmorecategory_init' );
+add_action( 'wp_ajax_nopriv_loadmorecategory', 'loadmorecategory_init' );
+function loadmorecategory_init() {
+    $id = (isset($_POST['id_category']))?esc_attr($_POST['id_category']) : '';
+    $args = array(
+        'orderby' =>'name',
+        'order' => 'DESC',
+        'limit' => 9, //Số lượng sp
+        'paginate' => true,
+        'paged' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'terms' => $id,
+                'operator' => 'IN',
+            )
+        )
+    );
+    $arr = [];
+    $temp = [];
+    $products = wc_get_products($args)->products;
+    foreach($products as $item){
+        $temp = ['name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        array_push($arr,$temp);
+    }
+    echo json_encode($arr);
+    die();//bắt buộc phải có khi kết thúc
+}
+//page category product
+add_action( 'wp_ajax_loadmorecategoryPage', 'loadmorecategoryPage_init' );
+add_action( 'wp_ajax_nopriv_loadmorecategoryPage', 'loadmorecategoryPage_init' );
+function loadmorecategoryPage_init() {
+    $id = (isset($_POST['id_category']))?esc_attr($_POST['id_category']) : '';
+    $page = (isset($_POST['page']))?esc_attr($_POST['page']) : '';
+    $args = array(
+        'orderby' =>'name',
+        'order' => 'DESC',
+        'limit' => 9, //Số lượng sp
+        'paginate' => true,
+        'paged' => $page,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'terms' => $id,
+                'operator' => 'IN',
+            )
+        )
+    );
+    $arr = [];
+    $temp = [];
+    $products = wc_get_products($args)->products;
+    foreach($products as $item){
+        $temp = ['name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        array_push($arr,$temp);
+    }
+    echo json_encode($arr);
+    die();//bắt buộc phải có khi kết thúc
+}
+//Ajax panigation Page
+add_action( 'wp_ajax_panigationPostNews', 'panigationPostNews_init' );
+add_action( 'wp_ajax_nopriv_panigationPostNews', 'panigationPostNews_init' );
+function panigationPostNews_init() {
+    $page = (isset($_POST['page']))?esc_attr($_POST['page']) : '';
+    $args = array(
+        'post_type' => 'post',
+        'orderby'    => 'ID',
+        'post_status' => 'publish',
+        'order'    => 'DESC',
+        'posts_per_page' => 6, // this will retrive all the post that is published 
+        'paged' => $page
+    );
+    $result = new WP_Query($args); 
+    $posts = $result->posts;
+    echo json_encode($posts);
+    die();//bắt buộc phải có khi kết thúc
+}
+//add Comment Post
+add_action( 'wp_ajax_commentPost', 'commentPost_init' );
+add_action( 'wp_ajax_nopriv_commentPost', 'commentPost_init' );
+function commentPost_init() {
+ 
+    //do bên js để dạng json nên giá trị trả về dùng phải encode
+    $name = (isset($_POST['name']))?esc_attr($_POST['name']) : '';
+    $message = (isset($_POST['message']))?esc_attr($_POST['message']) : '';
+    $email = (isset($_POST['email']))?esc_attr($_POST['email']) : '';
+    $id = (isset($_POST['id']))?esc_attr($_POST['id']) : '';
+    $subject = (isset($_POST['subject']))?esc_attr($_POST['subject']) : '';
+
+    $arg = array(
+        'comment_post_ID' => $id,
+        'comment_author' => $name,
+        'comment_author_email' => $email,
+        'comment_content' => $message,
+        'comment_type'  => '',
+        'comment_date' => date('Y-m-d H:i:s'),
+        'comment_date_gmt' => date('Y-m-d H:i:s'),
+    );
+    
+   wp_insert_comment($arg);
+ 
+    die();//bắt buộc phải có khi kết thúc
+}
