@@ -1,0 +1,22 @@
+2021-06-28T18:25:12+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_user_meta(), 0 passed in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php on line 2 and at least 1 expected in C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\user.php:1016
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php(2): get_user_meta()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(1): get_header()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\wp in C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\user.php on line 1016
+
+2021-06-28T18:39:25+00:00 CRITICAL Uncaught Error: Call to a member function get_data() on array in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php:3
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(1): get_header()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php on line 3
+

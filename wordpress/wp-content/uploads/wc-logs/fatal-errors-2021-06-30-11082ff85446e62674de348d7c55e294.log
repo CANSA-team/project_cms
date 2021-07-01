@@ -1,0 +1,62 @@
+2021-06-30T12:23:34+00:00 CRITICAL Uncaught Error: Call to a member function get_image_id() on bool in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php:172
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(710): get_footer()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php on line 172
+
+2021-06-30T12:38:16+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:1296
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php(7): WC_Cart::remove_cart_item('2a38a4a9316c49e...')
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(1): get_header()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\www\w in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 1296
+
+2021-06-30T13:11:08+00:00 CRITICAL Uncaught Error: Call to a member function get_regular_price() on array in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php:180
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(710): get_footer()
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\footer.php on line 180
+
+2021-06-30T15:12:35+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:225
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(651): WC_Cart_Totals->get_items_from_cart()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(143): WC_Cart_Totals->calculate_item_totals()
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(134): WC_Cart_Totals->calculate()
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1398): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1357): WC_Cart->calculate_totals()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functi in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 225
+
+2021-06-30T15:12:36+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:225
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(651): WC_Cart_Totals->get_items_from_cart()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(143): WC_Cart_Totals->calculate_item_totals()
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(134): WC_Cart_Totals->calculate()
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1398): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1357): WC_Cart->calculate_totals()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functi in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 225
+
+2021-06-30T16:29:00+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:225
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(651): WC_Cart_Totals->get_items_from_cart()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(143): WC_Cart_Totals->calculate_item_totals()
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(134): WC_Cart_Totals->calculate()
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1398): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1357): WC_Cart->calculate_totals()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functi in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 225
+

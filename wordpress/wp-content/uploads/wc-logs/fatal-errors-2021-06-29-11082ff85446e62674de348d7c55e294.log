@@ -1,0 +1,46 @@
+2021-06-29T15:32:32+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\legacy\class-wc-legacy-cart.php:274
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php(9): WC_Legacy_Cart::get_cart_from_session()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(1): get_header()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\ in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\legacy\class-wc-legacy-cart.php on line 274
+
+2021-06-29T15:33:32+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\legacy\class-wc-legacy-cart.php:274
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php(9): WC_Legacy_Cart::get_cart_from_session()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(1): get_header()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\ in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\legacy\class-wc-legacy-cart.php on line 274
+
+2021-06-29T15:33:34+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\legacy\class-wc-legacy-cart.php:274
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php(9): WC_Legacy_Cart::get_cart_from_session()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(1): get_header()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\ in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\legacy\class-wc-legacy-cart.php on line 274
+
+2021-06-29T15:36:41+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php:604
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php(9): WC_Cart::get_cart()
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#4 C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\index.php(1): get_header()
+#5 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\worpress_cansateam\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#7 C:\wamp64\www\worpress_cansateam\wordpress\i in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\plugins\woocommerce\includes\class-wc-cart.php on line 604
+
+2021-06-29T16:23:11+00:00 CRITICAL syntax error, unexpected '/', expecting end of file in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functions.php on line 226
+
