@@ -1,1 +1,0 @@
-<?php return array('dependencies' => array('wc-navigation', 'wp-hooks', 'wp-i18n', 'wp-polyfill'), 'version' => '7e447befdfcde4c67c98c442e07f821f');
