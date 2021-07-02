@@ -54,6 +54,13 @@ if (!function_exists('project_theme_setup')) {
 
         // Them menu
         register_nav_menu('primary-menu', __('Primary Menu','project'));
+        register_nav_menu('footer-col-1', __('Footer About','project'));
+        register_nav_menu('footer-col-2', __('Footer Contact','project'));
+        register_nav_menu('footer-col-3', __('Footer Links','project'));
+        register_nav_menu('footer-col-4', __('Footer Explore','project'));
+
+
+       
 
         // Tao sidebar 
         $sidebar = array(
