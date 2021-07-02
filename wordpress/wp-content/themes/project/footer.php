@@ -8,71 +8,55 @@
                      <a href="index-2.html" class="footer-widget__logo">
                          <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo-light.png" alt="" width="105" height="43">
                      </a>
-                     <p class="thm-text-dark">Atiam rhoncus sit amet adip
-                         scing sed ipsum. Lorem ipsum
-                         dolor sit amet adipiscing <br>
-                         sem neque.</p>
+                      <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'footer-col-1',
+                                    'container' => 'false',
+                                    'menu_id' => 'footer-col-1',
+                                    'menu_class' => 'list-unstyled footer-widget__links',
+                                                     
+                                )
+                            )?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
                  <div class="footer-widget footer-widget__contact-widget">
                      <h3 class="footer-widget__title">Contact</h3>
-                     <ul class="list-unstyled footer-widget__contact">
-                         <li>
-                             <i class="fa fa-phone-square"></i>
-                             <a href="tel:666-888-0000">666 888 0000</a>
-                         </li>
-                         <li>
-                             <i class="fa fa-envelope"></i>
-                             <a href="https://ninetheme.com/cdn-cgi/l/email-protection#eb82858d84ab8884869b8a8592c5888486"><span class="__cf_email__" data-cfemail="b5dcdbd3daf5d6dad8c5d4dbcc9bd6dad8">[email&#160;protected]</span></a>
-                         </li>
-                         <li>
-                             <i class="fa fa-map-marker-alt"></i>
-                             <a href="#">66 top broklyn street.
-                                 New York</a>
-                         </li>
-                     </ul>
+                            <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'footer-col-2',
+                                    'container' => 'false',
+                                    'menu_id' => 'footer-col-2',
+                                    'menu_class' => 'list-unstyled footer-widget__contact',
+                                    'before'=>'<i class="organik-icon-email"></i>'
+                                )
+                            )?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
                  <div class="footer-widget footer-widget__links-widget">
                      <h3 class="footer-widget__title">Links</h3>
-                     <ul class="list-unstyled footer-widget__links">
-                         <li>
-                             <a href="index-2.html">Top Sellers</a>
-                         </li>
-                         <li>
-                             <a href="products.html">Shopping</a>
-                         </li>
-                         <li>
-                             <a href="about.html">About Store</a>
-                         </li>
-                         <li>
-                             <a href="contact.html">Contact</a>
-                         </li>
-                         <li>
-                             <a href="contact.html">Help</a>
-                         </li>
-                     </ul>
+                      <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'footer-col-3',
+                                    'container' => 'false',
+                                    'menu_id' => 'footer-col-3',
+                                    'menu_class' => 'list-unstyled footer-widget__links',
+                                )
+                            )?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
                  <div class="footer-widget">
                      <h3 class="footer-widget__title">Explore</h3>
-                     <ul class="list-unstyled footer-widget__links">
-                         <li>
-                             <a href="products.html">New Products</a>
-                         </li>
-                         <li>
-                             <a href="checkout.html">My Account</a>
-                         </li>
-                         <li>
-                             <a href="contact.html">Support</a>
-                         </li>
-                         <li>
-                             <a href="contact.html">FAQs</a>
-                         </li>
-                     </ul>
+                     <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'footer-col-4',
+                                    'container' => 'false',
+                                    'menu_id' => 'footer-col-4',
+                                    'menu_class' => 'list-unstyled footer-widget__links'
+                                )
+                            )?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
