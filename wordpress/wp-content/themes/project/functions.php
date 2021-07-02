@@ -113,7 +113,7 @@ function loadmore_init() {
     $temp = [];
     $products = wc_get_products($args)->products;
     foreach($products as $item){
-        $temp = ['name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        $temp = ['id'=>$item->id,'name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
         array_push($arr,$temp);
     }
     echo json_encode($arr);
@@ -142,7 +142,7 @@ function loadmorecategory_init() {
     $temp = [];
     $products = wc_get_products($args)->products;
     foreach($products as $item){
-        $temp = ['name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        $temp = ['id'=>$item->id,'name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
         array_push($arr,$temp);
     }
     echo json_encode($arr);
@@ -243,13 +243,112 @@ function QualityAjax_init() {
 }
 //Add cart ajax
 add_action( 'wp_ajax_addCartAjax', 'addCartAjax_init' );
-add_action( 'wp_ajax_nopriv_addCartAjax', 'QaddCartAjax_init' );
+add_action( 'wp_ajax_nopriv_addCartAjax', 'addCartAjax_init' );
 function addCartAjax_init() {
     $id = (isset($_POST['id']))?esc_attr($_POST['id']) : '';
     $quality = (isset($_POST['quality']))?esc_attr($_POST['quality']) : '';
     $key = WC()->cart->add_to_cart($id);
+    WC()->cart->set_quantity($key,$quality,true);
+    $item = wc_get_product($id);
+    $temp = ['key'=>$key,'quality'=>$quality,'name'=>$item->name,'Price'=>$item->get_regular_price(),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+    echo json_encode($temp);
+    die();//bắt buộc phải có khi kết thúc
+}
+//Checkout order ajax
+add_action( 'wp_ajax_addOrderAjax', 'addOrderAjax_init' );
+add_action( 'wp_ajax_nopriv_addOrderAjax', 'addOrderAjax_init' );
+function addOrderAjax_init() {
+    $first_name = (isset($_POST['first_name']))?esc_attr($_POST['first_name']) : '';
+    $last_name = (isset($_POST['last_name']))?esc_attr($_POST['last_name']) : '';
+    $email = (isset($_POST['email']))?esc_attr($_POST['email']) : '';
+    $phone = (isset($_POST['phone']))?esc_attr($_POST['phone']) : '';
+    $address_1 = (isset($_POST['address_1']))?esc_attr($_POST['address_1']) : '';
+    $address_2 = (isset($_POST['address_2']))?esc_attr($_POST['address_2']) : '';
+    $city = (isset($_POST['city']))?esc_attr($_POST['city']) : '';
+    $state = (isset($_POST['state']))?esc_attr($_POST['state']) : '';
+    $postcode = (isset($_POST['postcode']))?esc_attr($_POST['postcode']) : '';
+    $totall_Sub= (isset($_POST['totall_Sub']))?esc_attr($_POST['totall_Sub']) : '';
+    $total_All = (isset($_POST['total_All']))?esc_attr($_POST['total_All']) : '';
+    $order_data = array(
+        'status' => apply_filters('woocommerce_default_order_status', 'processing'),
+        'customer_id' => get_current_user_id()
+    );
+    $order = wc_create_order($order_data);
+    $address = array(
+        'first_name' => $first_name,
+        'last_name'  => $last_name,
+        'email'      => $email,
+        'phone'      => $phone,
+        'address_1'  => $address_1,
+        'address_2'  => $address_2,
+        'city'       => $city,
+        'state'      => $state,
+        'postcode'   => $postcode
+    );
+    $items = WC()->cart->get_cart();
+    foreach($items as $item => $values) {
+      $product_id = $values['product_id'];
+      $product = wc_get_product($product_id);
+      $var_slug = $values['variation']['attribute_pa_weight'];
+      $quantity = (int)$values['quantity'];
+      $variationsArray = array();
+      $variationsArray['variation'] = array(
+        'pa_weight' => $var_slug
+      );
+      $order->add_product($product, $quantity, $variationsArray);
+    }
+    
+    $order->set_address( $address, 'billing' );
+    $order->set_address( $address, 'shipping' );
+    
+    $order->set_total($totall_Sub, 'total');
+    $order->set_total($total_All, 'subtotal');
+    $order->update_status( 'processing' );
+    echo json_encode(WC()->cart->empty_cart());
+    die();//bắt buộc phải có khi kết thúc
+}
+//Ajax panigation Page
+add_action( 'wp_ajax_panigationPostNews', 'panigationPostNews_init' );
+add_action( 'wp_ajax_nopriv_panigationPostNews', 'panigationPostNews_init' );
+function panigationPostNews_init() {
+    $page = (isset($_POST['page']))?esc_attr($_POST['page']) : '';
+    $args = array(
+        'post_type' => 'post',
+        'orderby'    => 'ID',
+        'post_status' => 'publish',
+        'order'    => 'DESC',
+        'posts_per_page' => 6, // this will retrive all the post that is published 
+        'paged' => $page
+    );
+    $result = new WP_Query($args); 
+    $posts = $result->posts;
+    echo json_encode($posts);
+    die();//bắt buộc phải có khi kết thúc
+}
+//add Comment Post
+add_action( 'wp_ajax_commentPost', 'commentPost_init' );
+add_action( 'wp_ajax_nopriv_commentPost', 'commentPost_init' );
+function commentPost_init() {
+ 
+    //do bên js để dạng json nên giá trị trả về dùng phải encode
+    $name = (isset($_POST['name']))?esc_attr($_POST['name']) : '';
+    $message = (isset($_POST['message']))?esc_attr($_POST['message']) : '';
+    $email = (isset($_POST['email']))?esc_attr($_POST['email']) : '';
+    $id = (isset($_POST['id']))?esc_attr($_POST['id']) : '';
+    $subject = (isset($_POST['subject']))?esc_attr($_POST['subject']) : '';
 
-    echo json_encode(WC()->cart->set_quantity($key, $quality,true));
+    $arg = array(
+        'comment_post_ID' => $id,
+        'comment_author' => $name,
+        'comment_author_email' => $email,
+        'comment_content' => $message,
+        'comment_type'  => '',
+        'comment_date' => date('Y-m-d H:i:s'),
+        'comment_date_gmt' => date('Y-m-d H:i:s'),
+    );
+    
+   wp_insert_comment($arg);
+ 
     die();//bắt buộc phải có khi kết thúc
 }
 

@@ -3,7 +3,6 @@ if (is_user_logged_in()) {
     $user = get_user_meta(get_current_user_id());
     $avatar = get_avatar(get_current_user_id(), 40);
 }
-$cart = unserialize($user['_woocommerce_persistent_cart_1'][0])['cart'];
 
 $url_here = $_SERVER['HTTP_REFERER'];
 ?>
@@ -60,6 +59,43 @@ $url_here = $_SERVER['HTTP_REFERER'];
             text-align: center;
         }
     </style>
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            /* Safari */
+            animation: spin 2s linear infinite;
+
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <div id="loader" style="position: fixed; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 100; display: none ;">
+        <div class="loader" style="position: fixed; top: 45%; left: 45%; z-index: 999; "></div>
+    </div>
     <div style="position: fixed; height: 100%; width: 100%; background-color: rgb(0, 0, 0,0.5); z-index: 100; display: <?php if (isset($_GET['login'])) {
                                                                                                                             echo 'block';
                                                                                                                         } else {
@@ -173,7 +209,7 @@ $url_here = $_SERVER['HTTP_REFERER'];
                 },
                 success: function(response) {
                     console.log(Number.isInteger(response));
-                    
+
                     if (Number.isInteger(response)) {
                         loginAction();
                         thongbao[0].innerHTML = `<div style="margin-top: 15px;" class="alert alert-success" role="alert">

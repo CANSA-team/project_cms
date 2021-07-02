@@ -3,6 +3,7 @@
  * Template name: Trang Sản Phẩm
  *
  */
+$item = wc_get_product(88);
 $args = array(
     'orderby' =>'name',
     'order' => 'DESC',
@@ -12,44 +13,7 @@ $args = array(
 );
 $products = wc_get_products($args)->products;
 ?>
-<style>
-    .loader {
-        border: 16px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 16px solid #3498db;
-        width: 120px;
-        height: 120px;
-        -webkit-animation: spin 2s linear infinite;
-        /* Safari */
-        animation: spin 2s linear infinite;
 
-    }
-
-    /* Safari */
-    @-webkit-keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-        }
-
-        100% {
-            -webkit-transform: rotate(360deg);
-        }
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-</style>
-<div id="loader"
-    style="position: fixed; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 100; display: none ;">
-    <div class="loader" style="position: fixed; top: 45%; left: 45%; z-index: 999; "></div>
-</div>
 <?php get_header(); ?>
 <div class="stricky-header stricked-menu main-menu">
     <div class="sticky-header__content"></div>
@@ -78,22 +42,6 @@ $products = wc_get_products($args)->products;
                             <input type="text" placeholder="Search">
                             <button class="organik-icon-magnifying-glass" type="submit"></button>
                         </form>
-                    </div>
-                    <div class="product-sidebar__single">
-                        <h3>Price</h3>
-                        <div class="product-sidebar__price-range">
-                            <div class="range-slider-price" id="range-slider-price"></div>
-                            <div class="form-group">
-                                <div class="left">
-                                    <p>$<span id="min-value-rangeslider"></span></p>
-                                    <span>-</span>
-                                    <p>$<span id="max-value-rangeslider"></span></p>
-                                </div>
-                                <div class="right">
-                                    <input onclick="price_fiter();" type="submit" class="thm-btn" value="Filter">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <script>
                         function price_fiter(){
@@ -206,8 +154,7 @@ $products = wc_get_products($args)->products;
                             <div class="product-card__image">
                                 <img src="${element.img}" alt="">
                                 <div class="product-card__image-content">
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                    <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
+                                    <a href="javascript:void(0);" onclick="addCart(${element.id},1);"><i class="organik-icon-shopping-cart"></i></a>
                                 </div>
                             </div>
                             <div class="product-card__content">
@@ -254,8 +201,7 @@ $products = wc_get_products($args)->products;
                             <div class="product-card__image">
                                 <img src="<?php echo wp_get_attachment_url($item->get_image_id()); ?>" alt="">
                                 <div class="product-card__image-content">
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                    <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
+                                    <a href="javascript:void(0);" onclick="addCart(<?php echo $item->id  ?>,1);"><i class="organik-icon-shopping-cart"></i></a>
                                 </div>
                             </div>
                             <div class="product-card__content">
@@ -301,7 +247,6 @@ $products = wc_get_products($args)->products;
                             loader.style.display = 'block';
                         },
                         success:function(response) {
-                            console.log(response)
                             loader.style.display = 'none';
                             response.forEach(element => {
                                 productDiv.innerHTML += `
@@ -310,8 +255,7 @@ $products = wc_get_products($args)->products;
                             <div class="product-card__image">
                                 <img src="${element.img}" alt="">
                                 <div class="product-card__image-content">
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                    <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
+                                    <a href="javascript:void(0);" onclick="addCart(${element.id},1);"><i class="organik-icon-shopping-cart"></i></a>
                                 </div>
                             </div>
                             <div class="product-card__content">
@@ -362,8 +306,7 @@ $products = wc_get_products($args)->products;
                             <div class="product-card__image">
                                 <img src="${element.img}" alt="">
                                 <div class="product-card__image-content">
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                    <a href="cart.html"><i class="organik-icon-shopping-cart"></i></a>
+                                    <a href="javascript:void(0);" onclick="addCart(${element.id},1);"><i class="organik-icon-shopping-cart"></i></a>
                                 </div>
                             </div>
                             <div class="product-card__content">

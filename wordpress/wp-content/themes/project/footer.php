@@ -143,7 +143,7 @@
 
  <div class="mini-cart">
      <div class="mini-cart__overlay mini-cart__toggler"></div>
-     <div class="mini-cart__content">
+     <div class="mini-cart__content" id="cartAllItem">
          <div class="mini-cart__top">
              <h3 class="mini-cart__title">Shopping Cart</h3>
              <span class="mini-cart__close mini-cart__toggler"><i class="organik-icon-close"></i></span>
@@ -154,29 +154,30 @@
                 $user = get_user_meta(get_current_user_id());
                 $cart = unserialize($user['_woocommerce_persistent_cart_1'][0])['cart'];
             }
-
-            foreach ($cart as $item) {
-                $product = wc_get_product($item['product_id']);
+            if ($cart != null) {
+                foreach ($cart as $item) {
+                    $product = wc_get_product($item['product_id']);
             ?>
-             <div class="mini-cart__item" id="<?php echo $item['key'] ?>">
-                 <div style="position: absolute; width: 90%; text-align: right;"><svg style="cursor: pointer;" onclick="delete1('<?php echo $item['key'] ?>');" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-x" viewBox="0 0 16 16">
-                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                     </svg></div>
-                 <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" alt="">
-                 <div class="mini-cart__item-content" style="z-index: 999;">
-                     <div class="mini-cart__item-top">
-                         <h3><a href="<?php echo $product->get_permalink() ?>"><?php echo $product->name ?></a></h3>
-                         <p id="total-<?php echo $item['key'] ?>"> <?php echo wc_price($item['line_subtotal']); ?></p>
-                         <input type="hidden" id="price-<?php echo $item['key'] ?>" value="<?php echo $product->get_regular_price() ?>">
-                     </div>
-                     <div class="quantity-box">
-                         <button type="button" onclick="priceUpdateMinus('<?php echo $item['key'] ?>')" class="sub">-</button>
-                         <input type="number" id="quality-<?php echo $item['key'] ?>" value="<?php echo $item['quantity']; ?>" />
-                         <button type="button" onclick="priceUpdatePlus('<?php echo $item['key'] ?>')" class="add">+</button>
+                 <div class="mini-cart__item" id="<?php echo $item['key'] ?>">
+                     <div style="position: absolute; width: 90%; text-align: right;"><svg style="cursor: pointer;" onclick="delete1('<?php echo $item['key'] ?>');" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-x" viewBox="0 0 16 16">
+                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                         </svg></div>
+                     <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" alt="">
+                     <div class="mini-cart__item-content" style="z-index: 999;">
+                         <div class="mini-cart__item-top">
+                             <h3><a href="<?php echo $product->get_permalink() ?>"><?php echo $product->name ?></a></h3>
+                             <p id="total-<?php echo $item['key'] ?>"> <?php echo wc_price($item['line_subtotal']); ?></p>
+                             <input type="hidden" id="price-<?php echo $item['key'] ?>" value="<?php echo $product->get_regular_price() ?>">
+                         </div>
+                         <div class="quantity-box">
+                             <button type="button" onclick="priceUpdateMinus('<?php echo $item['key'] ?>')" class="sub">-</button>
+                             <input type="number" id="quality-<?php echo $item['key'] ?>" value="<?php echo $item['quantity']; ?>" />
+                             <button type="button" onclick="priceUpdatePlus('<?php echo $item['key'] ?>')" class="add">+</button>
+                         </div>
                      </div>
                  </div>
-             </div>
-         <?php } ?>
+         <?php }
+            } ?>
 
          <div class="spinner-border" role="status" id="load" style="margin-left: 130px; display: none;">
              <span class="sr-only">Loading...</span>
@@ -208,7 +209,7 @@
      }
 
      function priceUpdateMinus(key) {
-        var quality = document.querySelectorAll('#quality-' + key);
+         var quality = document.querySelectorAll('#quality-' + key);
          quality.forEach(element => {
              element.value--
              temp = element.value
@@ -300,7 +301,7 @@
 
  </div>
  <script>
-     function addCart(id,quality) {
+     function addCart(id, quality) {
          $.ajax({
              type: "post", //Phương thức truyền post hoặc get
              dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
@@ -308,16 +309,36 @@
              data: {
                  action: "addCartAjax", //Tên action
                  id: id,
-                 quality:quality,
+                 quality: quality,
              },
              context: this,
              beforeSend: function() {
                  //Làm gì đó trước khi gửi dữ liệu vào xử lý
                  document.getElementById('load').style.display = 'block';
+                 loader.style.display = 'block';
 
              },
              success: function(response) {
+                 document.getElementById('cartAllItem').innerHTML += ` <div class="mini-cart__item" id="${response.key}">
+                 <div style="position: absolute; width: 90%; text-align: right;"><svg style="cursor: pointer;" onclick="delete1('${response.key}');" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-x" viewBox="0 0 16 16">
+                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                     </svg></div>
+                 <img src="${response.img}" alt="">
+                 <div class="mini-cart__item-content" style="z-index: 999;">
+                     <div class="mini-cart__item-top">
+                         <h3><a href="${response.url}">${response.name}</a></h3>
+                         <p id="total-${response.key}">$${parseInt(response.quality)*parseInt(response.Price)}</p>
+                         <input type="hidden" id="price-${response.key}" value="${response.Price}">
+                     </div>
+                     <div class="quantity-box">
+                         <button type="button" onclick="priceUpdateMinus('${response.key}')" class="sub">-</button>
+                         <input type="number" id="quality-${response.key}" value="${response.quality}" />
+                         <button type="button" onclick="priceUpdatePlus('${response.key}')" class="add">+</button>
+                     </div>
+                 </div>
+             </div>`;
                  document.getElementById('load').style.display = 'none';
+                 loader.style.display = 'none';
              },
              error: function(jqXHR, textStatus, errorThrown) {
                  //Làm gì đó khi có lỗi xảy ra
