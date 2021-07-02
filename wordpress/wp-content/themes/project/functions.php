@@ -94,7 +94,7 @@ function comment_init() {
     );
     
     $comment_id = wp_insert_comment($arg);
- 
+    echo json_encode($comment_id);
     die();//bắt buộc phải có khi kết thúc
 }
 //LoadMore btn ajax
@@ -113,7 +113,9 @@ function loadmore_init() {
     $temp = [];
     $products = wc_get_products($args)->products;
     foreach($products as $item){
-        $temp = ['id'=>$item->id,'name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        $price = '';
+        if($item->get_sale_price()==''){$price = wc_price($item->get_regular_price());}else{ $price = wc_price($item->get_sale_price()).' <strike>'.wc_price($item->get_regular_price()).'</strike>';}
+        $temp = ['id'=>$item->id,'name'=>$item->name,'Price'=>$price,'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
         array_push($arr,$temp);
     }
     echo json_encode($arr);
@@ -142,7 +144,9 @@ function loadmorecategory_init() {
     $temp = [];
     $products = wc_get_products($args)->products;
     foreach($products as $item){
-        $temp = ['id'=>$item->id,'name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        $price = '';
+        if($item->get_sale_price()==''){$price = wc_price($item->get_regular_price());}else{ $price = wc_price($item->get_sale_price()).' <strike>'.wc_price($item->get_regular_price()).'</strike>';}
+        $temp = ['id'=>$item->id,'name'=>$item->name,'Price'=>$price,'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
         array_push($arr,$temp);
     }
     echo json_encode($arr);
@@ -172,7 +176,9 @@ function loadmorecategoryPage_init() {
     $temp = [];
     $products = wc_get_products($args)->products;
     foreach($products as $item){
-        $temp = ['name'=>$item->name,'Price'=>wc_price($item->get_regular_price()),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+        $price = '';
+        if($item->get_sale_price()==''){$price = wc_price($item->get_regular_price());}else{ $price = wc_price($item->get_sale_price()).' <strike>'.wc_price($item->get_regular_price()).'</strike>';}
+        $temp = ['name'=>$item->name,'Price'=>$price,'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
         array_push($arr,$temp);
     }
     echo json_encode($arr);
@@ -250,7 +256,9 @@ function addCartAjax_init() {
     $key = WC()->cart->add_to_cart($id);
     WC()->cart->set_quantity($key,$quality,true);
     $item = wc_get_product($id);
-    $temp = ['key'=>$key,'quality'=>$quality,'name'=>$item->name,'Price'=>$item->get_regular_price(),'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
+    $price = '';
+    if($item->get_sale_price()==''){$price = $item->get_regular_price();}else{ $price = $item->get_sale_price();}
+    $temp = ['key'=>$key,'quality'=>$quality,'name'=>$item->name,'Price'=>$price,'url'=>$item->get_permalink(),'img'=>wp_get_attachment_url($item->get_image_id())];
     echo json_encode($temp);
     die();//bắt buộc phải có khi kết thúc
 }

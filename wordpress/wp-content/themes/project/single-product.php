@@ -92,7 +92,7 @@ if(!empty($comments)){
                     <div class="product_detail_review_box">
                         <div class="product_detail_price_box">
                             <p>
-                                <?php echo wc_price($product->get_regular_price()); ?>
+                            <?php if($product->get_sale_price()==''){echo wc_price($product->get_regular_price());}else{ echo wc_price($product->get_sale_price()).' <strike>'.wc_price($product->get_regular_price()).'</strike>';}  ?>
                             </p>
                         </div>
                         <div class="product_detail_review">
@@ -113,8 +113,8 @@ if(!empty($comments)){
                             neque.</p>
                     </div>
                     <ul class="list-unstyled product_detail_address">
-                        <li>REF. 4231/406</li>
-                        <li>Available in store</li>
+                        <li><?php echo $product->sku ?></li>
+                        <li> <?php if($product->stock_status =='instock'){echo 'Available in store';}else{echo 'Not Available in store';} ?></li>
                     </ul>
                     <div class="product-quantity-box">
                         <div class="quantity-box">
@@ -323,11 +323,11 @@ if(!empty($comments)){
                                             },
                                             success: function (response) {
                                                 //Làm gì đó khi dữ liệu đã được xử lý
-
+                                                loader.style.display = 'none';
                                             },
                                           
                                             })
-                                        loader.style.display = 'none';
+                                        
                                         for (var i = 1; i <= 5; i++) {
                                             if (star >= i) {
                                                 starComment += '<a href="javascript:void(0)"><i class="fa fa-star"></i></a>'

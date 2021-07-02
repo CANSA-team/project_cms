@@ -6,7 +6,6 @@
  */
 $cart = $_GET;
 
-var_dump($cart);
 
 ?>
 <?php get_header() ?>
@@ -213,12 +212,10 @@ var_dump($cart);
              context: this,
              beforeSend: function() {
                  //Làm gì đó trước khi gửi dữ liệu vào xử lý
-                 document.getElementById('load').style.display = 'block';
+                 loader.style.display = 'block';
              },
              success: function(response) {
-                 if (response == true) {
-                     document.getElementById('load').style.display = 'none';
-                 }
+                loader.style.display = 'none';
              },
              error: function(jqXHR, textStatus, errorThrown) {
                  //Làm gì đó khi có lỗi xảy ra

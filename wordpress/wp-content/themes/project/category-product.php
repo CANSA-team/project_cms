@@ -210,7 +210,7 @@ $products = wc_get_products($args)->products;
                                             <?php echo $item->name ?>
                                         </a></h3>
                                     <p>
-                                        <?php echo wc_price($item->get_regular_price()); ?>
+                                    <?php if($item->get_sale_price()==''){echo wc_price($item->get_regular_price());}else{ echo wc_price($item->get_sale_price()).' <strike>'.wc_price($item->get_regular_price()).'</strike>';}  ?>
                                     </p>
                                 </div>
                                 <div class="product-card__right">

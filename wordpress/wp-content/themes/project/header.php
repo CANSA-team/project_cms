@@ -3,7 +3,6 @@ if (is_user_logged_in()) {
     $user = get_user_meta(get_current_user_id());
     $avatar = get_avatar(get_current_user_id(), 40);
 }
-
 $url_here = $_SERVER['HTTP_REFERER'];
 ?>
 <!DOCTYPE html>
@@ -96,6 +95,7 @@ $url_here = $_SERVER['HTTP_REFERER'];
     <div id="loader" style="position: fixed; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 100; display: none ;">
         <div class="loader" style="position: fixed; top: 45%; left: 45%; z-index: 999; "></div>
     </div>
+    <script>var loader = document.getElementById('loader');</script>
     <div style="position: fixed; height: 100%; width: 100%; background-color: rgb(0, 0, 0,0.5); z-index: 100; display: <?php if (isset($_GET['login'])) {
                                                                                                                             echo 'block';
                                                                                                                         } else {

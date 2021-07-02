@@ -131,12 +131,12 @@
                     <div class="product-card__two">
                         <div class="product-card__two-image">
                             <span class="product-card__two-sale">sale</span>
-                            <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" alt="">
+                            <img style="width: 370px; height: 300px;" src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" alt="">
                             <div class="product-card__two-image-content">
                                 <a href="<?php echo $product->get_permalink() ?>"><i class="organik-icon-visibility"></i></a>
                                 <a onclick="addCart(<?php echo $product->id  ?>,1);" href="javascript:void(0);"><i class="organik-icon-shopping-cart"></i></a>
                             </div>
-                        </div>
+                        </div> 
                         <div class="product-card__two-content">
                             <h3><a href="<?php echo $product->get_permalink() ?>"><?php echo $product->name ?></a></h3>
                             <div class="product-card__two-stars">
@@ -146,7 +146,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <p><?php echo wc_price($product->get_regular_price()); ?></p>
+                            <p><?php if($product->get_sale_price()==''){echo wc_price($product->get_regular_price());}else{ echo wc_price($product->get_sale_price()).' <strike>'.wc_price($product->get_regular_price()).'</strike>';}  ?></p>
                         </div>
                     </div>
                 </div>

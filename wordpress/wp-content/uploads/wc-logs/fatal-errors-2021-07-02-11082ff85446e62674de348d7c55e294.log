@@ -46,3 +46,14 @@ Stack trace:
 #7 {main}
   thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\header.php on line 6
 
+2021-07-02T12:30:59+00:00 CRITICAL Uncaught Error: Call to a member function get_regular_price() on null in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functions.php:176
+Stack trace:
+#0 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\class-wp-hook.php(292): loadmorecategoryPage_init('')
+#1 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#2 C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#3 C:\wamp64\www\worpress_cansateam\wordpress\wp-admin\admin-ajax.php(187): do_action('wp_ajax_loadmor...')
+#4 {main}
+  thrown in C:\wamp64\www\worpress_cansateam\wordpress\wp-content\themes\project\functions.php on line 176
+
+2021-07-02T13:29:02+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\worpress_cansateam\wordpress\wp-includes\wp-db.php on line 2056
+
