@@ -10,7 +10,10 @@ if(!empty($comments)){
     $arrStar = array_column($comments, 'comment_karma');
     $count_ratting_popular = max(array_count_values($arrStar));
     $star_popular = array_search($count_ratting_popular,array_count_values($arrStar));
+    
+    update_post_meta( $product->get_id(), '_wc_average_rating',$star_popular);
 }
+
 ?>
 <style>
     .loader {
@@ -99,7 +102,7 @@ if(!empty($comments)){
                             <?php for($i = 1;$i<=5;$i++){
                                     if($i<=$star_popular){ ?>
                             <a href="#"><i class="fa fa-star"></i></a>
-                            <?php }else{ ?>
+                            <?php }else if($star_popular==0){ echo ' <a href="#"><i class="fa fa-star"></i></a>';  }else{ ?>
                             <a href="#" class="deactive"><i class="fa fa-star"></i></a>
                             <?php }} ?>
                             <span>

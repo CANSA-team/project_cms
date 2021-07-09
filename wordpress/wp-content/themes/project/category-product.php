@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Template name: Trang Sản Phẩm
  *
  */
 $item = wc_get_product(88);
 $args = array(
-    'orderby' =>'name',
+    'orderby' => 'name',
     'order' => 'DESC',
     'limit' => 9, //Số lượng sp
     'paginate' => true,
@@ -19,8 +20,7 @@ $products = wc_get_products($args)->products;
     <div class="sticky-header__content"></div>
 </div>
 <section class="page-header">
-    <div class="page-header__bg"
-        style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/backgrounds/page-header-bg-1-1.jpg);">
+    <div class="page-header__bg" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/backgrounds/page-header-bg-1-1.jpg);">
     </div>
 
     <div class="container">
@@ -44,31 +44,31 @@ $products = wc_get_products($args)->products;
                         </form>
                     </div>
                     <script>
-                        function price_fiter(){
-                           
+                        function price_fiter() {
+
                             var productDiv = document.getElementById('product_category');
                             productDiv.innerHTML = '';
                             page_price = 1;
                             minPrice = document.getElementById('min-value-rangeslider').textContent;
-                            maxPrice =document.getElementById('max-value-rangeslider').textContent;
+                            maxPrice = document.getElementById('max-value-rangeslider').textContent;
                             $.ajax({
-                            type: "post", //Phương thức truyền post hoặc get
-                            dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
-                            url: '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
-                            data : {
-                                action: "loadmoreMinMax", //Tên action
-                                minPrice:minPrice,
-                                maxPrice:maxPrice,
+                                type: "post", //Phương thức truyền post hoặc get
+                                dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
+                                url: '<?php echo admin_url('admin-ajax.php'); ?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+                                data: {
+                                    action: "loadmoreMinMax", //Tên action
+                                    minPrice: minPrice,
+                                    maxPrice: maxPrice,
                                 },
-                        context: this,
-                        beforeSend: function () {
-                            loader.style.display = 'block';
-                        },
-                        success:function(response) {
-                            console.log(response)
-                            loader.style.display = 'none';
-                            response.forEach(element => {
-                                productDiv.innerHTML += `
+                                context: this,
+                                beforeSend: function() {
+                                    loader.style.display = 'block';
+                                },
+                                success: function(response) {
+                                    console.log(response)
+                                    loader.style.display = 'none';
+                                    response.forEach(element => {
+                                        productDiv.innerHTML += `
                         <div class="col-md-6 col-lg-4">
                         <div class="product-card">
                             <div class="product-card__image">
@@ -97,28 +97,29 @@ $products = wc_get_products($args)->products;
                             </div>
                         </div>
                     </div>`;
+                                    });
+                                },
                             });
-                        },         
-                        });
                         }
                     </script>
                     <div class="product-sidebar__single">
                         <h3>Categories</h3>
                         <ul class="list-unstyled product-sidebar__links">
-                        <?php 
-                        $order = 'asc';
-                        $hide_empty = false;
-                        $cat_args = array(
-                            'orderby'    => $orderby,
-                            'order'      => $order,
-                            'hide_empty' => $hide_empty,
-                        );
-                        $product_categories = get_terms('product_cat', $cat_args);
-                        foreach($product_categories as $item){
-                            if($item->name != 'Uncategorized'){
-                        ?>
-                            <li><a href="javascript:void(0);" onclick="getProductByCategory(<?php echo $item->term_id ?>);" ><?php echo $item->name ?> <i class="fa fa-angle-right"></i></a></li>
-                            <?php }} ?>
+                            <?php
+                            $order = 'asc';
+                            $hide_empty = false;
+                            $cat_args = array(
+                                'orderby'    => $orderby,
+                                'order'      => $order,
+                                'hide_empty' => $hide_empty,
+                            );
+                            $product_categories = get_terms('product_cat', $cat_args);
+                            foreach ($product_categories as $item) {
+                                if ($item->name != 'Uncategorized') {
+                            ?>
+                                    <li><a href="javascript:void(0);" onclick="getProductByCategory(<?php echo $item->term_id ?>);"><?php echo $item->name ?> <i class="fa fa-angle-right"></i></a></li>
+                            <?php }
+                            } ?>
                         </ul>
                     </div>
                 </div>
@@ -126,26 +127,27 @@ $products = wc_get_products($args)->products;
             <script>
                 page_category = -1;
                 id_cat = -1;
+
                 function getProductByCategory(id) {
                     page_category = 1;
                     id_cat = id;
                     var productDiv = document.getElementById('product_category');
                     $.ajax({
-                            type: "post", //Phương thức truyền post hoặc get
-                            dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
-                            url: '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
-                            data : {
-                                action: "loadmorecategory", //Tên action
-                                page:page,
-                                id_category:id,
-                                },
+                        type: "post", //Phương thức truyền post hoặc get
+                        dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
+                        url: '<?php echo admin_url('admin-ajax.php'); ?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+                        data: {
+                            action: "loadmorecategory", //Tên action
+                            page: page,
+                            id_category: id,
+                        },
                         context: this,
-                        beforeSend: function () {
+                        beforeSend: function() {
                             loader.style.display = 'block';
                         },
-                        success:function(response) {
+                        success: function(response) {
                             console.log(response)
-                            productDiv.innerHTML ='';
+                            productDiv.innerHTML = '';
                             loader.style.display = 'none';
                             response.forEach(element => {
                                 productDiv.innerHTML += `
@@ -177,79 +179,141 @@ $products = wc_get_products($args)->products;
                         </div>
                     </div>`;
                             });
-                        },         
-                        });
+                        },
+                    });
                 }
-
             </script>
             <div class="col-sm-12 col-md-12 col-lg-9">
                 <div class="product-sorter">
-                    <p>Showing 1–9 of 12 results</p>
+                    <p></p>
                     <div class="product-sorter__select">
-                        <select class="selectpicker">
-                            <option value="#">Sort by popular</option>
-                            <option value="#">Sort by popular</option>
-                            <option value="#">Sort by popular</option>
-                            <option value="#">Sort by popular</option>
+                        <select onchange="changeSort(this);" class="selectpicker">
+                            <option value="" disabled selected>Chọn mục cần soft</option>
+                            <option value="cao_thap">Giá cao đến thấp</option>
+                            <option value="thap_cao">Giá từ thấp đến cao</option>
                         </select>
                     </div>
                 </div>
                 <div class="row" id="product_category">
-                    <?php foreach($products as $item){ ?>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="product-card">
-                            <div class="product-card__image">
-                                <img src="<?php echo wp_get_attachment_url($item->get_image_id()); ?>" alt="">
-                                <div class="product-card__image-content">
-                                    <a href="javascript:void(0);" onclick="addCart(<?php echo $item->id  ?>,1);"><i class="organik-icon-shopping-cart"></i></a>
+                    <?php foreach ($products as $item) {
+                        $price_product_temp = 0; ?>
+                        <div id="products" class="col-md-6 col-lg-4">
+                            <div class="product-card">
+                                <div class="product-card__image">
+                                    <img src="<?php echo wp_get_attachment_url($item->get_image_id()); ?>" alt="">
+                                    <div class="product-card__image-content">
+                                        <a href="javascript:void(0);" onclick="addCart(<?php echo $item->id  ?>,1);" class="<?php if (!is_user_logged_in()) {
+                                                                                                                                echo 'btn-disabled';
+                                                                                                                            } ?>"><i class="organik-icon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-card__content">
+                                    <div class="product-card__left">
+                                        <h3><a href="<?php echo $item->get_permalink() ?>">
+                                                <?php echo $item->name ?>
+                                            </a></h3>
+                                        <p>
+                                            <?php if ($item->get_sale_price() == '') {
+                                                echo wc_price($item->get_regular_price());
+                                                $price_product_temp = $item->get_regular_price();
+                                            } else {
+                                                echo wc_price($item->get_sale_price()) . ' <strike>' . wc_price($item->get_regular_price()) . '</strike>';
+                                                $price_product_temp = $item->get_sale_price();
+                                            }  ?>
+                                        </p>
+                                    </div>
+                                    <div class="product-card__right">
+                                        <?php $star_popular = $item->get_average_rating() + 0;
+                                        for ($i = 1; $i <= 5; $i++) {
+                                            if ($i <= $star_popular) { ?>
+                                                <a href="#"><i class="fa fa-star"></i></a>
+                                            <?php } else if ($star_popular == 0) {
+                                                echo ' <a href="#"><i class="fa fa-star"></i></a>';
+                                            } else { ?>
+                                                <a href="#" style="color: currentColor;"><i class="fa fa-star"></i></a>
+                                        <?php }
+                                        } ?>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="product-card__content">
-                                <div class="product-card__left">
-                                    <h3><a href="<?php echo $item->get_permalink() ?>">
-                                            <?php echo $item->name ?>
-                                        </a></h3>
-                                    <p>
-                                    <?php if($item->get_sale_price()==''){echo wc_price($item->get_regular_price());}else{ echo wc_price($item->get_sale_price()).' <strike>'.wc_price($item->get_regular_price()).'</strike>';}  ?>
-                                    </p>
-                                </div>
-                                <div class="product-card__right">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
+                            <input type="hidden" value="<?php echo $price_product_temp; ?>">
                         </div>
-                    </div>
                     <?php } ?>
                 </div>
                 <div class="text-center" id="btnLoadMore">
                     <a style="cursor: pointer;" class="thm-btn products__load-more">Load More</a>
                 </div>
                 <script>
+                    function changeSort(i) {
+                        switch (i.value) {
+                            case 'cao_thap':
+                                sortCaoToiThap();
+                                break;
+                            case 'thap_cao':
+                                sortThapToiCao();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                    function sortThapToiCao() {
+                        var productDiv1 = document.getElementById('product_category');
+                        var products1 = document.querySelectorAll('#products');
+                        console.log(products1.item(1));
+                        var listitems = [];
+                        for (var i = 0; i < products1.length; i++) {
+                            listitems.push(products1.item(i));
+                        }
+                        listitems.sort(function(a, b) {
+                            var compA = parseInt(a.childNodes[3].value);
+                            var compB = parseInt(b.childNodes[3].value);
+                            return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+                        });
+                        listitems.forEach(element => {
+                            productDiv1.appendChild(element);
+                        });
+                    }
+                    function sortCaoToiThap() {
+                        var productDiv1 = document.getElementById('product_category');
+                        var products1 = document.querySelectorAll('#products');
+                        console.log(products1.item(1));
+                        var listitems = [];
+                        for (var i = 0; i < products1.length; i++) {
+                            listitems.push(products1.item(i));
+                        }
+                        listitems.sort(function(a, b) {
+                            var compA = parseInt(a.childNodes[3].value);
+                            var compB = parseInt(b.childNodes[3].value);
+                            return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+                        });
+                        listitems.forEach(element => {
+                            productDiv1.appendChild(element);
+                        });
+                    }
+                </script>
+                <script>
                     var productDiv = document.getElementById('product_category');
                     var page = 2;
                     const btnMore = document.getElementById('btnLoadMore');
-                    btnMore.addEventListener('click', function () {
-                        if(page_category == -1){
+                    btnMore.addEventListener('click', function() {
+                        if (page_category == -1) {
                             $.ajax({
-                            type: "post", //Phương thức truyền post hoặc get
-                            dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
-                            url: '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
-                            data : {
-                                action: "loadmore", //Tên action
-                                page:page,
+                                type: "post", //Phương thức truyền post hoặc get
+                                dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
+                                url: '<?php echo admin_url('admin-ajax.php'); ?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+                                data: {
+                                    action: "loadmore", //Tên action
+                                    page: page,
                                 },
-                        context: this,
-                        beforeSend: function () {
-                            loader.style.display = 'block';
-                        },
-                        success:function(response) {
-                            loader.style.display = 'none';
-                            response.forEach(element => {
-                                productDiv.innerHTML += `
+                                context: this,
+                                beforeSend: function() {
+                                    loader.style.display = 'block';
+                                },
+                                success: function(response) {
+                                    loader.style.display = 'none';
+                                    response.forEach(element => {
+                                        productDiv.innerHTML += `
                         <div class="col-md-6 col-lg-4">
                         <div class="product-card">
                             <div class="product-card__image">
@@ -277,30 +341,30 @@ $products = wc_get_products($args)->products;
                             </div>
                         </div>
                     </div>`;
+                                    });
+                                },
                             });
-                        },         
-                        });
-                        page++;
-                        }else{
+                            page++;
+                        } else {
                             page_category++
                             $.ajax({
-                            type: "post", //Phương thức truyền post hoặc get
-                            dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
-                            url: '<?php echo admin_url('admin-ajax.php');?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
-                            data : {
-                                action: "loadmorecategoryPage", //Tên action
-                                page: page_category,
-                                id_category:id_cat,
+                                type: "post", //Phương thức truyền post hoặc get
+                                dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
+                                url: '<?php echo admin_url('admin-ajax.php'); ?>', //Đường dẫn chứa hàm xử lý dữ liệu. Mặc định của WP như vậy
+                                data: {
+                                    action: "loadmorecategoryPage", //Tên action
+                                    page: page_category,
+                                    id_category: id_cat,
                                 },
-                        context: this,
-                        beforeSend: function () {
-                            loader.style.display = 'block';
-                        },
-                        success:function(response) {
-                            console.log(response)
-                            loader.style.display = 'none';
-                            response.forEach(element => {
-                                productDiv.innerHTML += `
+                                context: this,
+                                beforeSend: function() {
+                                    loader.style.display = 'block';
+                                },
+                                success: function(response) {
+                                    console.log(response)
+                                    loader.style.display = 'none';
+                                    response.forEach(element => {
+                                        productDiv.innerHTML += `
                         <div class="col-md-6 col-lg-4">
                         <div class="product-card">
                             <div class="product-card__image">
@@ -328,12 +392,12 @@ $products = wc_get_products($args)->products;
                             </div>
                         </div>
                     </div>`;
+                                    });
+                                },
                             });
-                        },         
-                        });
-                        page++;
+                            page++;
                         }
-                       
+
                     });
                 </script>
             </div>
@@ -347,9 +411,7 @@ $products = wc_get_products($args)->products;
     <div class="mobile-nav__content">
         <span class="mobile-nav__close mobile-nav__toggler"><i class="organik-icon-close"></i></span>
         <div class="logo-box">
-            <a href="index-2.html" aria-label="logo image"><img
-                    src="<?php bloginfo('template_directory'); ?>/assets/images/logo-light.png" width="155"
-                    alt="" /></a>
+            <a href="index-2.html" aria-label="logo image"><img src="<?php bloginfo('template_directory'); ?>/assets/images/logo-light.png" width="155" alt="" /></a>
         </div>
 
         <div class="mobile-nav__container"></div>
@@ -357,9 +419,7 @@ $products = wc_get_products($args)->products;
         <ul class="mobile-nav__contact list-unstyled">
             <li>
                 <i class="organik-icon-email"></i>
-                <a href="https://ninetheme.com/cdn-cgi/l/email-protection#38565d5d5c505d544878574a5f59565153165b5755"><span
-                        class="__cf_email__"
-                        data-cfemail="1e707b7b7a767b726e5e716c797f707775307d7173">[email&#160;protected]</span></a>
+                <a href="https://ninetheme.com/cdn-cgi/l/email-protection#38565d5d5c505d544878574a5f59565153165b5755"><span class="__cf_email__" data-cfemail="1e707b7b7a767b726e5e716c797f707775307d7173">[email&#160;protected]</span></a>
             </li>
             <li>
                 <i class="organik-icon-calling"></i>

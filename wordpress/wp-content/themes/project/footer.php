@@ -8,55 +8,55 @@
                      <a href="index-2.html" class="footer-widget__logo">
                          <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo-light.png" alt="" width="105" height="43">
                      </a>
-                      <?php wp_nav_menu(
-                                array(
-                                    'theme_location' => 'footer-col-1',
-                                    'container' => 'false',
-                                    'menu_id' => 'footer-col-1',
-                                    'menu_class' => 'list-unstyled footer-widget__links',
-                                                     
-                                )
-                            )?>
+                     <?php wp_nav_menu(
+                            array(
+                                'theme_location' => 'footer-col-1',
+                                'container' => 'false',
+                                'menu_id' => 'footer-col-1',
+                                'menu_class' => 'list-unstyled footer-widget__links',
+
+                            )
+                        ) ?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
                  <div class="footer-widget footer-widget__contact-widget">
                      <h3 class="footer-widget__title">Contact</h3>
-                            <?php wp_nav_menu(
-                                array(
-                                    'theme_location' => 'footer-col-2',
-                                    'container' => 'false',
-                                    'menu_id' => 'footer-col-2',
-                                    'menu_class' => 'list-unstyled footer-widget__contact',
-                                    'before'=>'<i class="organik-icon-email"></i>'
-                                )
-                            )?>
+                     <?php wp_nav_menu(
+                            array(
+                                'theme_location' => 'footer-col-2',
+                                'container' => 'false',
+                                'menu_id' => 'footer-col-2',
+                                'menu_class' => 'list-unstyled footer-widget__contact',
+                                'before' => '<i class="organik-icon-email"></i>'
+                            )
+                        ) ?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
                  <div class="footer-widget footer-widget__links-widget">
                      <h3 class="footer-widget__title">Links</h3>
-                      <?php wp_nav_menu(
-                                array(
-                                    'theme_location' => 'footer-col-3',
-                                    'container' => 'false',
-                                    'menu_id' => 'footer-col-3',
-                                    'menu_class' => 'list-unstyled footer-widget__links',
-                                )
-                            )?>
+                     <?php wp_nav_menu(
+                            array(
+                                'theme_location' => 'footer-col-3',
+                                'container' => 'false',
+                                'menu_id' => 'footer-col-3',
+                                'menu_class' => 'list-unstyled footer-widget__links',
+                            )
+                        ) ?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
                  <div class="footer-widget">
                      <h3 class="footer-widget__title">Explore</h3>
                      <?php wp_nav_menu(
-                                array(
-                                    'theme_location' => 'footer-col-4',
-                                    'container' => 'false',
-                                    'menu_id' => 'footer-col-4',
-                                    'menu_class' => 'list-unstyled footer-widget__links'
-                                )
-                            )?>
+                            array(
+                                'theme_location' => 'footer-col-4',
+                                'container' => 'false',
+                                'menu_id' => 'footer-col-4',
+                                'menu_class' => 'list-unstyled footer-widget__links'
+                            )
+                        ) ?>
                  </div>
              </div>
              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
@@ -137,6 +137,8 @@
             if (is_user_logged_in()) {
                 $user = get_user_meta(get_current_user_id());
                 $cart = unserialize($user['_woocommerce_persistent_cart_1'][0])['cart'];
+            } else {
+                echo '<div style="color: white;">Vui lòng đăng nhập để add cart!!</div>';
             }
             if ($cart != null) {
                 foreach ($cart as $item) {
@@ -166,8 +168,8 @@
          <div class="spinner-border" role="status" id="load" style="margin-left: 130px; display: none;">
              <span class="sr-only">Loading...</span>
          </div>
-
-         <a href="checkout.html" class="thm-btn mini-cart__checkout">Proceed To Checkout</a>
+         
+         <a href="<?php echo get_home_url() ?>/trang-cart" class="thm-btn mini-cart__checkout">Proceed To Checkout</a>
 
      </div>
  </div>

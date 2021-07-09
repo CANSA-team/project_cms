@@ -134,7 +134,7 @@
                             <img style="width: 370px; height: 300px;" src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" alt="">
                             <div class="product-card__two-image-content">
                                 <a href="<?php echo $product->get_permalink() ?>"><i class="organik-icon-visibility"></i></a>
-                                <a onclick="addCart(<?php echo $product->id  ?>,1);" href="javascript:void(0);"><i class="organik-icon-shopping-cart"></i></a>
+                                <a onclick="addCart(<?php echo $product->id  ?>,1);" class="<?php if(!is_user_logged_in()){ echo 'btn-disabled';}?>" href="javascript:void(0);"><i class="organik-icon-shopping-cart"></i></a>
                             </div>
                         </div> 
                         <div class="product-card__two-content">
